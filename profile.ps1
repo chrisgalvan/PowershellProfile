@@ -14,3 +14,8 @@ $myDocumentsFolder = [Environment]::GetFolderPath("mydocuments")
 
 # Load the generic functions
 . "$PSScriptRoot\generic-functions.ps1"
+
+function ReloadProfile
+{
+	. $PROFILE
+}

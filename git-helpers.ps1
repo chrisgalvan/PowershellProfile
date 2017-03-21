@@ -30,11 +30,11 @@ function updateUpstream
 {
 	$branch = git rev-parse --abbrev-ref HEAD
 	
-	git pull
+	git pull --rebase
 	
 	git fetch upstream
 	
-	git merge upstream\$branch
+	git pull --rebase upstream $branch
 	
 	git push origin $branch
 }
