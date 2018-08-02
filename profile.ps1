@@ -4,10 +4,16 @@ Set-Location C:\dev
 $myDocumentsFolder = [Environment]::GetFolderPath("mydocuments")
 
 # Load posh-git example profile
-. "$myDocumentsFolder\WindowsPowerShell\Modules\posh-git\profile.example.ps1"
+$poshgit = "$myDocumentsFolder\WindowsPowerShell\Modules\posh-git\posh-git.psd1"
+if (Test-Path($poshgit)) {
+  . $poshgit
+}
 
 # Load cmder profile
-. 'C:\tools\cmder_mini\vendor\profile.ps1'
+$cmder = 'C:\tools\cmder_mini\vendor\profile.ps1'
+if (Test-Path($cmder)) {
+  . $cmder
+}
 
 # Load the git helpers functions
 . "$PSScriptRoot\git-helpers.ps1"
@@ -17,5 +23,5 @@ $myDocumentsFolder = [Environment]::GetFolderPath("mydocuments")
 
 function ReloadProfile
 {
-	. $PROFILE
+  . $PROFILE
 }

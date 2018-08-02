@@ -1,40 +1,40 @@
 <#
-	.SYNOPSIS
-	
-	Sets upstream repository and list the current remotes
+  .SYNOPSIS
+
+  Sets upstream repository and list the current remotes
 #>
 function addUpstream
 {
 param(
-	$repo
+  $repo
 )
-	git remote add upstream $repo
-	
-	write-host "Added"
-	
-	git remote -v
+  git remote add upstream $repo
+
+  write-host "Added"
+
+  git remote -v
 }
 
 <#
-	.SYNOPSIS
-	
-	Updates a repo with content from the upstream.
-	
-	.DESCRIPTION
-	
-	This function will fetch the changes in the upstream repo and push them to
-	our fork.
-	The upsteam repository needs to be setup before running this command
+  .SYNOPSIS
+
+  Updates a repo with content from the upstream.
+
+  .DESCRIPTION
+
+  This function will fetch the changes in the upstream repo and push them to
+  our fork.
+  The upsteam repository needs to be setup before running this command
 #>
 function updateUpstream
 {
-	$branch = git rev-parse --abbrev-ref HEAD
-	
-	git pull --rebase
-	
-	git fetch upstream
-	
-	git pull --rebase upstream $branch
-	
-	git push origin $branch
+  $branch = git rev-parse --abbrev-ref HEAD
+
+  git pull --rebase
+
+  git fetch upstream
+
+  git pull --rebase upstream $branch
+
+  git push origin $branch
 }

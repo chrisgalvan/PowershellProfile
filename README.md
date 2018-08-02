@@ -3,7 +3,7 @@ This repository contains the definition of my powershell profile functions/helpe
 
 ## Installation
 
-To install this, download this repo, then execute 
+To install this, download this repo, then execute
 
 ```
 .\install.ps1
