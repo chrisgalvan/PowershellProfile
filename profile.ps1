@@ -6,7 +6,7 @@ $myDocumentsFolder = [Environment]::GetFolderPath("mydocuments")
 # Load posh-git example profile
 $poshgit = "$myDocumentsFolder\WindowsPowerShell\Modules\posh-git\posh-git.psd1"
 if (Test-Path($poshgit)) {
-  . $poshgit
+#  Import-Module $poshgit
 }
 
 # Load cmder profile
